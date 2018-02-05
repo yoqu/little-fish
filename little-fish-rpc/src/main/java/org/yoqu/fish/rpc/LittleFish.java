@@ -6,6 +6,7 @@ import org.yoqu.fish.config.ServerType;
 import org.yoqu.fish.rpc.server.FishRouter;
 import org.yoqu.fish.rpc.server.NettyServer;
 
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -20,10 +21,15 @@ public class LittleFish {
 
     private Router router;
 
+    private List registerService;
+
     public LittleFish() {
 
     }
 
+    public static Builder builder(){
+        return new Builder();
+    }
 
     public LittleFish(ServerConfig serverConfig, Server server) {
         this.serverConfig = serverConfig;
@@ -47,11 +53,6 @@ public class LittleFish {
         private Server server;
 
         private Router router;
-
-        public static Builder instance() {
-            return new Builder();
-        }
-
 
         public Builder server(ServerType type) {
             if (type == ServerType.NETTY) {

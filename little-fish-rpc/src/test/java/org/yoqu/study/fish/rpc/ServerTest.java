@@ -14,8 +14,7 @@ public class ServerTest {
 
     @Test
     public void startServer() {
-        boolean result = LittleFish.Builder
-                .instance()
+        boolean result = LittleFish.builder()
                 .port(8080)
                 .build()
                 .start();
